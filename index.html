@@ -1,12 +1,53 @@
 <!DOCTYPE html>
-<html lang="pr-BR">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Bolrtim Digital</title>
+  <meta charset="UTF-8" />
+  <!-- Faz o site se adaptar bem a celulares -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boletim Digital</title>
+  <!-- Liga o arquivo de estilos -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
+
+  <!-- Cabeçalho com título e subtítulo -->
+  <header class="cabecalho">
+    <h1>Boletim Digital</h1>
+    <p class="subtitulo">8º Ano — Estudante Exemplo</p>
+  </header>
+
+  <main class="conteudo">
+
+    <!-- Área dos cards de resumo (preenchida pelo JavaScript) -->
+    <section class="cards" id="cards"></section>
+
+    <!-- Área da tabela de disciplinas -->
+    <section class="tabela-area">
+      <h2>Notas por disciplina</h2>
+
+      <!-- Tabela responsiva: em telas pequenas ela rola na horizontal -->
+      <div class="tabela-scroll">
+        <table class="boletim">
+          <thead>
+            <tr>
+              <th>Disciplina</th>
+              <th>1º Tri</th>
+              <th>2º Tri</th>
+              <th>3º Tri</th>
+              <th>Média</th>
+              <th>Faltas</th>
+              <th>Situação</th>
+            </tr>
+          </thead>
+          <!-- O corpo da tabela é preenchido pelo script.js -->
+          <tbody id="corpo-tabela"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Liga o arquivo JavaScript no final para a página carregar mais rápido -->
+  <script src="script.js"></script>
 </body>
 </html>
