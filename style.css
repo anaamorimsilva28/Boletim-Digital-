@@ -1,0 +1,186 @@
+/* ===== VARIÁVEIS DE COR ===== */
+/* Guardamos as cores em variáveis para mudar tudo em um só lugar */
+:root {
+  --azul: #2563eb;          /* cor principal */
+  --azul-claro: #3b82f6;    /* azul um pouco mais claro para detalhes */
+  --branco-suave: #e5e7eb;  /* cor secundária */
+  --fundo: #0f172a;         /* fundo escuro principal */
+  --fundo-card: #1e293b;    /* fundo dos cards e da tabela */
+  --fundo-card-2: #273449;  /* fundo alternado de linhas */
+  --texto: #f1f5f9;         /* texto claro */
+  --texto-fraco: #94a3b8;   /* texto secundário/apagado */
+  --bom: #22c55e;           /* verde para "Bom desempenho" */
+  --atencao: #f59e0b;       /* laranja para "Atenção" */
+  --sem-nota: #64748b;      /* cinza para "Nota ainda não disponível" */
+}
+
+/* ===== RESET BÁSICO ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--fundo);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  padding: 20px;
+}
+
+/* ===== CABEÇALHO ===== */
+.cabecalho {
+  text-align: center;
+  padding: 24px 16px;
+  background-color: var(--fundo-card);
+  border-radius: 16px;
+  border-bottom: 4px solid var(--azul);
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cabecalho h1 {
+  color: var(--azul-claro);
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  color: var(--branco-suave);
+  font-size: 1rem;
+}
+
+/* ===== CONTEÚDO ===== */
+.conteudo {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===== CARDS DE RESUMO ===== */
+.cards {
+  display: grid;
+  /* Em telas grandes mostra vários cards lado a lado; em telas pequenas empilha */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.card {
+  background-color: var(--fundo-card);
+  border-radius: 16px;              /* cantos arredondados */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45); /* sombra leve */
+  padding: 18px;
+  border-left: 5px solid var(--azul); /* faixa azul de destaque */
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px); /* sobe um pouquinho ao passar o mouse */
+}
+
+.card .rotulo {
+  font-size: 0.85rem;
+  color: var(--texto-fraco);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.card .valor {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--branco-suave);
+}
+
+.card .detalhe {
+  font-size: 0.85rem;
+  color: var(--texto-fraco);
+  margin-top: 4px;
+}
+
+/* ===== ÁREA DA TABELA ===== */
+.tabela-area h2 {
+  color: var(--azul-claro);
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+/* Faz a tabela rolar na horizontal em telas pequenas */
+.tabela-scroll {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+table.boletim {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--fundo-card);
+  min-width: 700px; /* garante que as colunas não fiquem espremidas */
+}
+
+table.boletim th,
+table.boletim td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #334155;
+  white-space: nowrap;
+}
+
+table.boletim th {
+  background-color: var(--azul);
+  color: #ffffff;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+}
+
+table.boletim tbody tr:nth-child(even) {
+  background-color: var(--fundo-card-2);
+}
+
+table.boletim tbody tr:hover {
+  background-color: #334155;
+}
+
+/* ===== CORES DAS SITUAÇÕES ===== */
+.situacao {
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.situacao.bom {
+  color: var(--bom);
+}
+
+.situacao.atencao {
+  color: var(--atencao);
+}
+
+.situacao.sem-nota {
+  color: var(--sem-nota);
+}
+
+/* Nota ausente aparece apagada */
+.nota-ausente {
+  color: var(--texto-fraco);
+  font-style: italic;
+}
+
+/* ===== AJUSTES PARA CELULAR ===== */
+@media (max-width: 600px) {
+  .cabecalho h1 {
+    font-size: 1.5rem;
+  }
+
+  .card .valor {
+    font-size: 1.4rem;
+  }
+
+  body {
+    padding: 12px;
+  }
+}
