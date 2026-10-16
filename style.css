@@ -12,6 +12,7 @@
   --bom: #22c55e;           /* verde para "Bom desempenho" */
   --atencao: #f59e0b;       /* laranja para "Atenção" */
   --sem-nota: #64748b;      /* cinza para "Nota ainda não disponível" */
+  --erro: #ef4444;          /* vermelho para mensagens de erro */
 }
 
 /* ===== RESET BÁSICO ===== */
@@ -182,5 +183,205 @@ table.boletim tbody tr:hover {
 
   body {
     padding: 12px;
+  }
+}
+
+/* ===================================================== */
+/* ============ ESTILOS NOVOS — TELA DE ACESSO ========= */
+/* ===================================================== */
+
+/* Esconde o conteúdo do boletim até o login ser feito */
+.oculto {
+  display: none;
+}
+
+/* Área da tela de acesso (PIN) */
+.tela-acesso {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.acesso-card {
+  background-color: var(--fundo-card);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+  border-bottom: 4px solid var(--azul);
+  padding: 32px 24px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.acesso-card h1 {
+  color: var(--azul-claro);
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.acesso-card .subtitulo {
+  margin-bottom: 24px;
+}
+
+/* Campo do PIN */
+.campo-pin {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.campo-pin label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--texto-fraco);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.campo-pin input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background-color: var(--fundo-card-2);
+  color: var(--texto);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-align: center;
+  outline: none;
+}
+
+.campo-pin input:focus {
+  border-color: var(--azul-claro);
+}
+
+/* Botões */
+.btn-principal {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--azul);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-principal:hover {
+  background-color: var(--azul-claro);
+}
+
+.btn-principal:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secundario {
+  padding: 10px 16px;
+  border: 1px solid var(--azul-claro);
+  border-radius: 10px;
+  background-color: transparent;
+  color: var(--azul-claro);
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-secundario:hover {
+  background-color: var(--azul-claro);
+  color: #ffffff;
+}
+
+/* Mensagens de status */
+.msg-acesso,
+.msg-salvar {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+.msg-acesso.erro,
+.msg-salvar.erro {
+  color: var(--erro);
+}
+
+.msg-acesso.ok,
+.msg-salvar.ok {
+  color: var(--bom);
+}
+
+/* ===================================================== */
+/* ============ ESTILOS NOVOS — MODO EDIÇÃO =========== */
+/* ===================================================== */
+
+/* Cabeçalho da área da tabela com o botão à direita */
+.tabela-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+/* Inputs dentro da tabela no modo edição */
+table.boletim input.campo-nota,
+table.boletim input.campo-falta {
+  width: 70px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background-color: var(--fundo-card-2);
+  color: var(--texto);
+  font-size: 0.9rem;
+  text-align: center;
+  outline: none;
+}
+
+table.boletim input.campo-nota:focus,
+table.boletim input.campo-falta:focus {
+  border-color: var(--azul-claro);
+}
+
+/* Campo inválido fica com borda vermelha */
+table.boletim input.campo-invalido {
+  border-color: var(--erro);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Ações no rodapé do modo edição */
+.acoes-edicao {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .acesso-card {
+    padding: 24px 18px;
+  }
+
+  .acesso-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .tabela-topo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .acoes-edicao {
+    justify-content: stretch;
+  }
+
+  .acoes-edicao button {
+    flex: 1;
   }
 }
