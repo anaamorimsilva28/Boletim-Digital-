@@ -13,6 +13,7 @@
   --atencao: #f59e0b;       /* laranja para "Atenção" */
   --sem-nota: #64748b;      /* cinza para "Nota ainda não disponível" */
   --erro: #ef4444;          /* vermelho para mensagens de erro */
+  --perigo: #dc2626;        /* vermelho forte para estado crítico */
 }
 
 /* ===== RESET BÁSICO ===== */
@@ -383,5 +384,110 @@ table.boletim input.campo-invalido {
 
   .acoes-edicao button {
     flex: 1;
+  }
+}
+
+/* ===================================================== */
+/* ============ ESTILOS NOVOS — ÁREA DE GRÁFICOS ====== */
+/* ===================================================== */
+
+/* Grid dos gráficos: 3 colunas no desktop */
+.area-graficos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+/* Card de cada gráfico */
+.grafico-card {
+  background-color: var(--fundo-card);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+  padding: 18px;
+  border-left: 5px solid var(--azul);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0; /* evita estourar o grid */
+  position: relative;
+}
+
+.grafico-card h2 {
+  color: var(--azul-claro);
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* Área do canvas: precisa de altura fixa para o Chart.js */
+.grafico-container {
+  position: relative;
+  width: 100%;
+  height: 240px;
+}
+
+/* O gráfico de média por disciplina tem 15 barras horizontais — mais alto */
+.grafico-container.grafico-alto {
+  height: 420px;
+}
+
+.grafico-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Badge "Perigo" que pode aparecer no card de faltas */
+.badge-perigo {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: var(--perigo);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Card em estado crítico ganha destaque */
+.grafico-card.em-perigo {
+  border-left-color: var(--perigo);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.35), 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+/* Tablet: 2 colunas, terceiro gráfico abaixo */
+@media (max-width: 900px) {
+  .area-graficos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grafico-card:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .grafico-container.grafico-alto {
+    height: 380px;
+  }
+}
+
+/* Celular: 1 coluna */
+@media (max-width: 600px) {
+  .area-graficos {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .grafico-card:nth-child(3) {
+    grid-column: auto;
+  }
+
+  .grafico-container {
+    height: 220px;
+  }
+
+  .grafico-container.grafico-alto {
+    height: 460px; /* dá espaço para as 15 disciplinas ficarem legíveis */
   }
 }

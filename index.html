@@ -48,6 +48,33 @@
       <!-- Área dos cards de resumo (preenchida pelo JavaScript) -->
       <section class="cards" id="cards"></section>
 
+      <!-- Área dos gráficos (preenchida pelo script.js via Chart.js) -->
+      <section class="area-graficos" id="area-graficos">
+
+        <article class="grafico-card">
+          <h2>Média por disciplina</h2>
+          <div class="grafico-container grafico-alto">
+            <canvas id="graficoMediasDisciplinas"></canvas>
+          </div>
+        </article>
+
+        <article class="grafico-card">
+          <h2>Evolução da média geral</h2>
+          <div class="grafico-container">
+            <canvas id="graficoEvolucaoTrimestres"></canvas>
+          </div>
+        </article>
+
+        <article class="grafico-card" id="card-faltas">
+          <h2>Faltas por trimestre</h2>
+          <div id="estadoFaltas"></div>
+          <div class="grafico-container">
+            <canvas id="graficoFaltasTrimestres"></canvas>
+          </div>
+        </article>
+
+      </section>
+
       <!-- Área da tabela de disciplinas -->
       <section class="tabela-area">
         <div class="tabela-topo">
@@ -81,6 +108,8 @@
     </main>
   </div>
 
+  <!-- Chart.js (para os gráficos) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Liga o arquivo JavaScript no final para a página carregar mais rápido -->
   <script src="script.js"></script>
 </body>
