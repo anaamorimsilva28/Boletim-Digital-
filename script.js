@@ -16,18 +16,18 @@ const CONFIG_ALUNO = {
 // Estes dados são usados quando a API não retorna dados salvos.
 // =====================================================
 const disciplinasLocais = [
-  { disciplina: "Língua Portuguesa", tri1: "7,4", tri2: "7,4", tri3: null, faltas: [0, 0, 0] },
+  { disciplina: "Língua Portuguesa", tri1: "7,4", tri2: "7,4", tri3: null, faltas: [2, 0, 0] },
   { disciplina: "Matemática", tri1: "6,0", tri2: "6,0", tri3: null, faltas: [0, 0, 0] },
-  { disciplina: "Ciências", tri1: "7,2", tri2: "7,2", tri3: null, faltas: [0, 0, 0] },
-  { disciplina: "História", tri1: "9,0", tri2: "9,0", tri3: null, faltas: [0, 0, 0] },
-  { disciplina: "Geografia", tri1: "6,2", tri2: "6,2", tri3: null, faltas: [0, 0, 0] },
+  { disciplina: "Ciências", tri1: "7,2", tri2: "7,2", tri3: null, faltas: [1, 0, 0] },
+  { disciplina: "História", tri1: "9,0", tri2: "9,0", tri3: null, faltas: [2, 0, 0] },
+  { disciplina: "Geografia", tri1: "6,2", tri2: "6,2", tri3: null, faltas: [2, 0, 0] },
   { disciplina: "Língua Inglesa", tri1: "8,9", tri2: "8,9", tri3: null, faltas: [0, 0, 0] },
-  { disciplina: "Arte", tri1: "7,2", tri2: "7,2", tri3: null, faltas: [0, 0, 0] },
+  { disciplina: "Arte", tri1: "7,2", tri2: "7,2", tri3: null, faltas: [2, 1, 0] },
   { disciplina: "Educação Física", tri1: "10,0", tri2: "10,0", tri3: null, faltas: [0, 0, 0] },
   { disciplina: "Educação Digital", tri1: "10,0", tri2: "10,0", tri3: null, faltas: [0, 0, 0] },
-  { disciplina: "Educação Financeira", tri1: "8,1", tri2: "8,1", tri3: null, faltas: [0, 0, 0] },
-  { disciplina: "Estudo Orientado", tri1: "9,0", tri2: "9,0", tri3: null, faltas: [0, 0, 0] },
-  { disciplina: "Redação e Leitura", tri1: "8,4", tri2: "8,4", tri3: null, faltas: [0, 0, 0] },
+  { disciplina: "Educação Financeira", tri1: "8,1", tri2: "8,1", tri3: null, faltas: [2, 0, 0] },
+  { disciplina: "Estudo Orientado", tri1: "9,0", tri2: "9,0", tri3: null, faltas: [1, 0, 0] },
+  { disciplina: "Redação e Leitura", tri1: "8,4", tri2: "8,4", tri3: null, faltas: [1, 0, 0] },
   { disciplina: "Pensamento Lógico", tri1: "9,7", tri2: "9,7", tri3: null, faltas: [0, 0, 0] },
   { disciplina: "Literatura Arte e Movimento", tri1: "9,5", tri2: "9,5", tri3: null, faltas: [0, 0, 0] },
   { disciplina: "Práticas Experimentais", tri1: "7,4", tri2: "7,4", tri3: null, faltas: [0, 0, 0] }
