@@ -880,4 +880,75 @@ function atualizarGraficoFaltas() {
   // Atualiza visual do card (badge "Perigo") sem alterar os dados
   const cardFaltas = document.getElementById("card-faltas");
   const estadoFaltas = document.getElementById("estadoFaltas");
-  if
+  if (cardFaltas && estadoFaltas) {
+    cardFaltas.classList.toggle("em-perigo", estaEmPerigo);
+    estadoFaltas.innerHTML = "";
+    if (estaEmPerigo) {
+      const badge = document.createElement("span");
+      badge.className = "badge-perigo";
+      badge.textContent = "Perigo";
+      estadoFaltas.appendChild(badge);
+    }
+  }
+
+  if (graficoFaltas) {
+    graficoFaltas.destroy();
+    graficoFaltas = null;
+  }
+
+  graficoFaltas = new Chart(canvas, {
+    type: "bar",
+    data: {
+      labels: ["1º Tri", "2º Tri", "3º Tri"],
+      datasets: [{
+        label: "Faltas",
+        data: [f1, f2, f3],
+        backgroundColor: [
+          cores.azul,
+          cores.azulPrincipal,
+          cores.bom
+        ],
+        borderColor: cores.azulPrincipal,
+        borderWidth: 1,
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: cores.textoFraco, precision: 0 },
+          grid: { color: cores.grade },
+          title: { display: true, text: "Faltas", color: cores.textoFraco }
+        },
+        x: {
+          ticks: { color: cores.texto },
+          grid: { color: cores.grade }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function (ctx) {
+              return ctx.parsed.y + " faltas";
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+// =====================================================
+// FUNÇÃO: atualizarGraficos()
+// Atualiza os três gráficos de uma vez.
+// Chamada apenas após a tela já ter sido atualizada.
+// =====================================================
+function atualizarGraficos() {
+  atualizarGraficoMedias();
+  atualizarGraficoEvolucao();
+  atualizarGraficoFaltas();
+}
